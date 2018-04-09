@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        $("a.confirm").click(function(){
+            return window.confirm("Jesteś pewien?");
+        });
+    });
+
+    </script>
+
+</head>
+<body>
+<h1>Lista produktów</h1>
+
+<p th:if="${message}" id="message"
+   th:text="${message}"/>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Show</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${products}">
+        <td th:text="${product.name}"/>
+        <td th:text="${product.description}"/>
+        <td><a th:href="@{'/products/'+${product.name}}"><img src="icon.png"></a></td>
+        <td><a th:href="@{ '/products/'+${product.name}+'/delete'   }" class="confirm">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/products/add">Dodaj nowy produkt</a>
+
+
+</body>
+</html>
+
+</body>
+</html>

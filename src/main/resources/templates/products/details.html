@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<p th:id="message" th:if="${message}" th:text="${message}" ></p>
+
+<div th:if="${product}">
+    <h1 th:text="${product.name}"></h1>
+    <p th:text="${product.description}"/>
+</div>
+
+
+
+</body>
+</html>
